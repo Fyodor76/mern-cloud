@@ -1,12 +1,24 @@
 import TextField from '@mui/material/TextField';
 
+import {useEffect} from 'react';
+
 import * as Styled from './ModalCreateDir.style';
 
 
 export const ModalCreateDir = ({setDirName, dirName, createDirHandler, updateDirHandler, mode}) => {
+
+  const createUpdate = (e) => {
+    e.preventDefault();
+    if (mode === 'create') {
+      createDirHandler();
+    } else {
+      updateDirHandler();
+    }
+  };
+
   return (
     <Styled.Container onClick={(e) => e.stopPropagation()}>
-      <Styled.Content>
+      <Styled.Content onSubmit={createUpdate}>
         { mode === 'create' ?
           <span>Создать новую папку</span>
           :
@@ -24,11 +36,17 @@ export const ModalCreateDir = ({setDirName, dirName, createDirHandler, updateDir
         <Styled.CustomedBlock>
           {
             mode === 'create' ?
-              <Styled.ButtonConfirm onClick={createDirHandler}>
+              <Styled.ButtonConfirm
+                type="submit"
+                onClick={createDirHandler}
+              >
               Создать
               </Styled.ButtonConfirm>
               :
-              <Styled.ButtonConfirm onClick={updateDirHandler}>
+              <Styled.ButtonConfirm
+                type="submit"
+                onClick={updateDirHandler}
+              >
                 изменить
               </Styled.ButtonConfirm>
           }

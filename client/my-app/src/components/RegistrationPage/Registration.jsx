@@ -64,21 +64,21 @@ export const Registration = () => {
       <Styled.RegistrationPageContainer>
         <Styled.BlockContent>
           {isRegSuccess ?
-            <div style={{fontSize: '18px', textAlign: 'center'}}>
-              <div style={{display: 'flex', gap: '6px', justifyContent: 'center'}}>
+            <Styled.ContainerSuccess>
+              <Styled.ContentSuccess>
                 <div>
                 You have registered successfully
                 </div>
                 <div>
                   <CheckCircleOutlineOutlinedIcon style={{color: 'green'}}/>
                 </div>
-              </div>
-              <div style={{paddingTop: '8px'}}>
+              </Styled.ContentSuccess>
+              <Box sx={{paddingTop: '8px'}}>
                 <Link to="/">
                    Go to the login page
                 </Link>
-              </div>
-            </div>
+              </Box>
+            </Styled.ContainerSuccess>
             :
             <>
               <Typography component="h1" variant="h5" sx={{ mb: 3 }}>

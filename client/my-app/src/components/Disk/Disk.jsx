@@ -51,19 +51,19 @@ export const Disk = () => {
     dispatch(getFiles(currentDir, sort));
   }, [currentDir, dispatch, sort]);
 
-  const createDirHandler = () => {
-    const response = dispatch(createDir(currentDir, dirName));
+  const createDirHandler = async () => {
+    const response = await dispatch(createDir(currentDir, dirName));
     closeModal();
     setDirName('');
     if (response) {
-      openSnackbar('success', 'Folder is created succesfully');
+      openSnackbar('success', 'Folder is created successfully');
     } else {
       openSnackbar('error', 'Some error happened, please, try again');
     }
   };
 
-  const updateDirHandler = () => {
-    const response = dispatch(updateDir(currentDir, dirName, modalState.id));
+  const updateDirHandler = async () => {
+    const response = await dispatch(updateDir(currentDir, dirName, modalState.id));
     closeModal();
     setDirName('');
     if (response) {

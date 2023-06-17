@@ -3,12 +3,12 @@ import Button from '@mui/material/Button';
 
 export const BlockDisk = styled('div')({
   width: '80%',
-  margin: '50px auto',
+  margin: '75px auto',
   backgroundColor: 'white',
   height: '80vh',
   borderRadius: '10px',
   overflowY: 'scroll',
-  padding: '15px 50px',
+  padding: '25px 50px',
 });
 
 export const BlockLoader = styled('div')({

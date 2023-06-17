@@ -9,8 +9,10 @@ import {useEffect, useState} from 'react';
 import {Login} from './components/LoginPage/Login';
 import {Registration} from './components/RegistrationPage/Registration';
 import {ForgetPassword} from './components/ForgetPassPage/ForgetPassword';
-import {MainPage} from './components/MainPage/MainPage';
+import {MainPage} from './Pages/MainPage/MainPage';
 import {auth} from './actions/user';
+import {Profile} from './Pages/Profile/Profile';
+import {Header} from './components/Header/Header';
 
 function App() {
   const isAuth = useSelector(state => state.user.isAuth);
@@ -24,8 +26,7 @@ function App() {
       setIsLoading(false);
     })();
 
-  });
-
+  }, []);
 
   useEffect(() => {
     if (isAuth) {
@@ -52,9 +53,13 @@ function App() {
           </Routes>
           }
           {isAuth &&
-          <Routes>
-            <Route path="/main-page" element={<MainPage />} />
-          </Routes>}
+            <div>
+              <Header/>
+              <Routes>
+                <Route path="/main-page" element={<MainPage />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </div>}
         </div>}
     </>
   );

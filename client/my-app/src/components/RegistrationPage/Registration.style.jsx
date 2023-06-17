@@ -6,6 +6,17 @@ export const MUITextField = styled(TextField)({
   marginTop: '0px',
 });
 
+export const ContainerSuccess = styled('div')({
+  fontSize: '18px',
+  textAlign: 'center',
+});
+
+export const ContentSuccess = styled('div')({
+  display: 'flex',
+  gap: '6px',
+  justifyContent: 'center',
+});
+
 export const RegistrationPageContainer = styled('div')({
   height: '80%',
   display: 'flex',

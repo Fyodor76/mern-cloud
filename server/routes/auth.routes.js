@@ -104,6 +104,8 @@ router.get('/user', authMiddleware,
                   diskSpace: user.diskSpace,
                   usedSpace: user.usedSpace,
                   avatar: user.avatar,
+                  name: user.name,
+                  surname: user.surname
               }
           })
 
@@ -111,6 +113,33 @@ router.get('/user', authMiddleware,
           console.log(e)
           res.send({message: 'Server error'})
       }
+  })
+
+
+router.put('/user', authMiddleware,
+  async (req, res) => {
+    try {
+
+      const {id, name, surname, email}  = req.body
+
+
+      const user = await User.findOneAndUpdate({
+        _id: id
+      }, {
+        name: name,
+        surname: surname,
+        email: email
+      }, {
+        new: true
+      })
+
+      await user.save()
+      res.json(user)
+
+    } catch (e) {
+      console.log(e)
+      res.send({message: 'Error updating user'})
+    }
   })
 
 module.exports = router

@@ -14,7 +14,7 @@ export const Container = styled('div')({
   transform: 'translate(-50%, -50%)',
 });
 
-export const Content = styled('div')({
+export const Content = styled('form')({
   width: '90%',
   margin: '20px auto',
 });
